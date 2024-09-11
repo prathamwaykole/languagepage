@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>Language App by Pratham</title>
+<style>
+*{font-size:40px;font-family:arial;}
+body{background-color:lightyellow;}
+input[type=checkbox]{width:2%;height:0.75em;}
+</style>
+</head>
+<body>
+<center>
+<h1>Language app</h1>
+<form onsubmit="show()">
+<input type="text" id="name" placeholder="Enter Your name"/>
+</br></br>
+<input type="checkbox" id="python"/>Python
+<input type="checkbox" id="Java"/>Java
+<input type="checkbox" id="Javascript"/>Javascript
+</br></br>
+<input type="submit"/>
+</form>
+<h2 id="msg"/>
+<script>
+function show()
+{
+event.preventDefault();
+let name = document.getElementById("name");
+let python = document.getElementById("python");
+let java = document.getElementById("Java");
+let Javascript = document.getElementById("Javascript");
+let n = name.value;
+if(n.trim() === "")
+{
+alert("please enter your name");
+msg.innerHTML="";
+name.focus();
+return;
+}
+
+if(!n.match("^[A-Za-z]+$"))
+{
+alert("Name should only contain alphabets");
+msg.innerHMTL="";
+name.focus();
+return;
+}
+let lang =  "" ;
+if (python.checked)          lang = lang + "python";
+if (java.checked)                lang = lang + "java";
+if (Javascript.checked)     lang = lang + "javascript";
+
+let a="name = " + n + " language = " + lang;
+msg.innerHTML = a;
+}
+</script>
+</center>
+</body>
+</html>
